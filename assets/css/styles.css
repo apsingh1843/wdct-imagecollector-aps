@@ -1,0 +1,57 @@
+body {
+  padding: 50px 0px 0px 0px;
+  z-index: 0;
+  background-color:#9DC88D;
+}
+
+.navbar-dark {
+  background-color: #164A41;
+}
+
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px; }
+
+.jumbotron {
+  margin: 0px auto;
+  padding: 40px 0px;
+  background: #9DC88D;
+  color: black;
+}
+
+.carousel {
+  background: #080808 }
+.carousel .carousel-item {
+  height: 250px; }
+
+
+.wrapper{
+  background:#c9cdd4;
+  padding: 40px 0px;
+}
+.heading{
+  background:#164A41;
+  color:white;
+}
+.cardmar{
+  padding: 3px;
+}
+.footer {
+  background-color:#164A41;
+  margin: 0px auto;
+  padding: 20px 0px;
+  color: white;
+  position: relative;
+  bottom: 0;
+}
+.cardback {
+  background-color:#164A41;
+  border: none;
+  box-shadow: 5px 10px 10px black;
+  color: white;
+}
+.cardhead{
+  background-color:#fa7804;
+}

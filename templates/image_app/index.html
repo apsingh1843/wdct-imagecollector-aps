@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'messages.html' %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="row row-header">
+      <div class="col-12 col-md-5 col-lg-5">
+        <h1>Heading</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua.</p>
+        <form action="{% url 'userform' %}" method="post">
+          {% csrf_token %}
+          <input type="submit" name="" value="Add Image" class="btn btn-info mb-3">
+        </form>
+      </div>
+      <div class="col-12 col-md-7 col-lg-5 offset-lg-2 align-self-center">
+        <div id="mycarousel" class="carousel slide" style="background-color: #164A41;" data-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <h2 style="color: white; margin-top: 80px;" class="text-center"> IMAGE COLLECTOR<br />CAROUSEL</h2>
+              </div>
+            {% for x in img %}
+              <div class="carousel-item">
+                <img class="card-img-top" src="{{x.photo.url}}" height="250px" alt="{{x.title}}">
+              </div>
+            {% endfor %}
+          </div>
+          <ol class="carousel-indicators">
+              <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#mycarousel" data-slide-to="1"></li>
+              <li data-target="#mycarousel" data-slide-to="2"></li>
+          </ol>
+          <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="wrapper">
+<div class="container">
+  <h4 class="text-center heading alert col-sm-6 offset-sm-3">Our Image Gallery</h4>
+  <hr />
+  <div class="row">
+    {% for x in img %}
+      <div class="col-md-6 col-lg-4 mt-3">
+        <div class="card cardmar">
+          <img class="card-img-top" src="{{x.photo.url}}" height="250px" alt="{{x.title}}">
+          <div class="card-body">
+            <h5 class="card-title">{{x.title}}</h5>
+            <p class="card-text">{{x.description}}</p>
+            <p class="card-text">
+              <b>Uploaded by : {{x.name}}</b><br />
+              {{x.date}}
+            </p>
+
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-4 offset-1 col-sm-2" >
+                <h5>Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color:white; text-decoration: none;">Home</a></li>
+                    <li><a href="#" style="color:white; text-decoration: none;">About</a></li>
+                    <li><a href="#" style="color:white; text-decoration: none;">Menu</a></li>
+                </ul>
+            </div>
+            <div class="col-7 col-sm-5">
+                <h5>Our Address</h5>
+                <address>
+                    121, Nowhere Land<br>
+                    Vormir<br>
+                    <i class="fa fa-phone fa-md"></i> : +12345678<br>
+                    <i class="fa fa-fax fa-md"></i> : +5678910<br>
+                    <i class="fa fa-envelope fa-md"></i> : <a href="http://gmail.com" style="color:white; text-decoration: none;">imagecollector.aps@gmail.com</a>
+                 </address>
+            </div>
+            <div class="col-12 col-sm-4 align-self-center">
+                <div class="text-center">
+                    <a href="#" style="color:white; text-decoration: none;"><h3>IMAGE COLLECTOR</h3><h5>(By Ayush)</h5></a>
+                </div>
+            </div>
+       </div>
+    </div>
+</footer>
+{% endblock %}

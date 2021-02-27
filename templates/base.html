@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Image Collector</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container-fluid">
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">IMAGE COLLECTOR</a>
+          <div class="collapse navbar-collapse" id="Navbar">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}"> <span><i class="fa fa-home fa-md"></i></span> Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#"><span><i class="fa fa-info-circle fa-md"></i></span> About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#"><span><i class="fa fa-bars fa-md"></i></span> Menu</a></li>
+            </ul>
+            <ul class="navbar-nav">
+              {% if user.is_authenticated %}
+               <li class="nav-item mr-3 mt-2" style="color:white; font-weight:bold;"><span><i class="fa fa-child fa-md"></i></span> Hello {{user.username}}</li>
+               <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><span><i class="fa fa-times fa-md"></i></span> Logout</a></li>
+              {% else %}
+              <li class="nav-item mr-1"><a class="nav-link" href="{% url 'login' %}"><span><i class="fa fa-user-circle fa-md"></i></span> Login</a></li>
+              <li class="nav-item"><a class="nav-link"href="{% url 'register' %}"><span><i class="fa fa-user-plus fa-md"></i></span> Register</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+
+
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="{% static 'js/scripts.js' %}"></script>
+  </body>
+</html>
